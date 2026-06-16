@@ -8,15 +8,11 @@ A Claude Code plugin that shows usage and context progress bars in the status li
 
 ## Installation
 
-**1. Add the marketplace:**
+Run these two commands in Claude Code:
 
-```bash
-# Add marketplace to Claude Code (run once)
-claude plugin marketplace add moco99 https://raw.githubusercontent.com/Moco99/claude-usage-bars/main/marketplace.json
 ```
-
-**2. Install the plugin:**
-
+/plugin marketplace add Moco99/claude-usage-bars
+```
 ```
 /plugin install claude-usage-bars@moco99
 ```
