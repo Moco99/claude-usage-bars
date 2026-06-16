@@ -61,6 +61,7 @@ try { input = JSON.parse(Buffer.concat(chunks).toString()); } catch { }
 const usagePct = input.rate_limits?.five_hour?.used_percentage ?? 0;
 const hours = hoursUntil(input.rate_limits?.five_hour?.resets_at ?? null);
 const ctxPct = input.context_window?.used_percentage ?? 0;
+const modelName = input.model?.display_name ?? '';
 
 const config = loadConfig();
 
@@ -68,9 +69,11 @@ const usgLabel = `${DIM}usg${RESET} `;
 const ctxLabel = `  ${DIM}ctx${RESET} `;
 const usgStats = ` ${DIM}${Math.round(usagePct)}%${hours ? `·${hours}h` : ''}${RESET}`;
 const ctxStats = ` ${DIM}${Math.round(ctxPct)}%${RESET}`;
+const modelPart = modelName ? `  ${fg(config.ctxColor)}${modelName}${RESET}` : '';
 
 const output =
   usgLabel + renderBar(usagePct, config.usageColor) + usgStats +
-  ctxLabel + renderBar(ctxPct, config.ctxColor) + ctxStats;
+  ctxLabel + renderBar(ctxPct, config.ctxColor) + ctxStats +
+  modelPart;
 
 process.stdout.write(output);
