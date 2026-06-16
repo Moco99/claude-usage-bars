@@ -54,3 +54,6 @@ Both flags are optional — you can change one or both at a time. Colors must be
 ```
 
 This removes the plugin. The `statusline` entry in `~/.claude/settings.json` will need to be removed manually (or it will silently fail to find the script).
+
+
+hope yall like it!!!
