@@ -1,0 +1,8 @@
+{
+  "name": "claude-usage-bars",
+  "description": "Usage and context progress bars in Claude Code's status line",
+  "author": {
+    "name": "Arturo Baez Solano",
+    "email": "abaezsolano@gmail.com"
+  }
+}
