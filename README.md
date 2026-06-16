@@ -11,15 +11,14 @@ A Claude Code plugin that shows usage and context progress bars in the status li
 **1. Add the marketplace:**
 
 ```bash
-# Add velantex marketplace to Claude Code
-# (run once)
-claude plugin marketplace add velantex https://raw.githubusercontent.com/velantex/claude-usage-bars/main/marketplace.json
+# Add marketplace to Claude Code (run once)
+claude plugin marketplace add moco99 https://raw.githubusercontent.com/Moco99/claude-usage-bars/main/marketplace.json
 ```
 
 **2. Install the plugin:**
 
 ```
-/plugin install claude-usage-bars@velantex
+/plugin install claude-usage-bars@moco99
 ```
 
 That's it. The bars appear automatically on your next prompt.

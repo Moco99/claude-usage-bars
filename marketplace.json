@@ -1,5 +1,5 @@
 {
-  "name": "velantex",
+  "name": "moco99",
   "plugins": [
     {
       "name": "claude-usage-bars",
@@ -7,7 +7,7 @@
       "author": "Arturo Baez Solano",
       "source": {
         "source": "url",
-        "url": "https://github.com/velantex/claude-usage-bars.git",
+        "url": "https://github.com/Moco99/claude-usage-bars.git",
         "sha": "HEAD"
       }
     }
