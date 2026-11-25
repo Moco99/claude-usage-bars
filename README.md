@@ -17,7 +17,9 @@ Run these two commands in Claude Code:
 /plugin install claude-usage-bars@moco99
 ```
 
-That's it. The bars appear automatically on your next prompt.
+Then restart Claude Code: the first run configures `~/.claude/settings.json`, and the bars appear from the next session on.
+
+Bars need a Claude Pro/Max subscription; with an API key the `usg` bar stays at 0%.
 
 ## Bars
 

@@ -1,16 +1,19 @@
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { homedir } from 'os';
-import { join } from 'path';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 
 // ─────────────────────────────────────────
 // Sección: Paths
 // ─────────────────────────────────────────
 
-const pluginRoot = process.env.CLAUDE_PLUGIN_ROOT;
+// Fallback keeps the command valid if the env var is ever missing.
+const pluginRoot = process.env.CLAUDE_PLUGIN_ROOT ?? join(dirname(fileURLToPath(import.meta.url)), '..');
 const homeDir = homedir();
 const settingsPath = join(homeDir, '.claude', 'settings.json');
 const configPath = join(homeDir, '.claude', 'claude-usage-bars.json');
-const defaultsPath = new URL('../config/defaults.json', import.meta.url).pathname;
+// fileURLToPath decodes %20 and handles Windows drive letters, unlike URL.pathname.
+const defaultsPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'config', 'defaults.json');
 
 // ─────────────────────────────────────────
 // Sección: Build expected statusLine config
@@ -30,7 +33,12 @@ const expectedStatusLine = {
 
 let settings = {};
 if (existsSync(settingsPath)) {
-  settings = JSON.parse(readFileSync(settingsPath, 'utf8'));
+  try {
+    settings = JSON.parse(readFileSync(settingsPath, 'utf8'));
+  } catch {
+    // Never overwrite a settings file we cannot parse.
+    process.exit(0);
+  }
 }
 
 const current = settings.statusLine;

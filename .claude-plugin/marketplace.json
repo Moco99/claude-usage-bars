@@ -13,11 +13,7 @@
       "author": {
         "name": "Arturo Baez Solano"
       },
-      "source": {
-        "source": "url",
-        "url": "https://github.com/Moco99/claude-usage-bars.git",
-        "sha": "87ec3672229a4237294b79a9f1541cc3840dfa0e"
-      }
+      "source": "./"
     }
   ]
 }
